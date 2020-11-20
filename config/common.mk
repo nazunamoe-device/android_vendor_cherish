@@ -141,20 +141,9 @@ include vendor/cherish/config/ota.mk
 $(call inherit-product, vendor/cherish/config/common_telephony.mk)
 
 # Inherit from GMS product config
-ifeq ($(WITH_GAPPS),true)
 $(call inherit-product, vendor/gms/gms_full.mk)
 # Inherit from apex config
-ifeq ($(TARGET_FLATTEN_APEX),false)
 $(call inherit-product, vendor/cherish/config/apex.mk)
-else
-# Hide "Google Play System Updates" if Apex disabled
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    vendor/cherish/overlay_apex_disabled
-
-DEVICE_PACKAGE_OVERLAYS += \
-    vendor/cherish/overlay_apex_disabled/common
-endif
-endif
 
 # Bootanimation
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
