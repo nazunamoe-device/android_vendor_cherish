@@ -254,7 +254,7 @@ include vendor/cherish/config/basicapps.mk
 $(call inherit-product, vendor/oplauncher/OPLauncher.mk)
 else
 # GApps
-$(call inherit-product, vendor/gapps/config.mk)
+# $(call inherit-product, vendor/gapps/config.mk)
 endif
 
 # OTA
